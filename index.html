@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eProof - Digital Warranty Locker</title>
+    <link rel="stylesheet" href="css/main_landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Added Google Fonts -->
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">eProof</h1>
+            <nav>
+                <a href="auth/login.php">Login</a>
+                <a href="auth/register.php" class="btn">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Digital Warranty Locker</h2>
+            <p>Store, manage, and track all your warranties in one secure place. Never lose your proof of purchase again!</p>
+            <a href="auth/register.php" class="btn primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>Why Choose eProof?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>📄 Store Bills & Warranties</h3>
+                <p>Upload bills, receipts, and warranty documents in seconds.</p>
+            </div>
+            <div class="feature">
+                <h3>⏰ Expiry Reminders</h3>
+                <p>Get notified before your warranty expires.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Brand Heatmaps</h3>
+                <p>Visualize your purchases and warranty statistics by brand.</p>
+            </div>
+            <div class="feature">
+                <h3>🛠 Complaint Tracking</h3>
+                <p>Submit and track complaints for your products.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <ol>
+            <li>Register your free eProof account</li>
+            <li>Add your products & upload bills</li>
+            <li>Get reminders & track warranties</li>
+        </ol>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 eProof. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const images = [
+            "images/ui1.jpg",
+            "images/ui4.png",
+            "images/ui3.png"
+        ];
+
+        let currentIndex = 0;
+        const heroSection = document.querySelector('.hero');
+
+        function changeBackground() {
+            heroSection.classList.add('fade-out');
+            setTimeout(() => {
+                heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+                heroSection.classList.remove('fade-out');
+                currentIndex = (currentIndex + 1) % images.length;
+            }, 300);
+        }
+
+        // Initial load
+        changeBackground();
+
+        // Change every 3 seconds
+        setInterval(changeBackground, 3000);
+    </script>
+
+</body>
+</html>

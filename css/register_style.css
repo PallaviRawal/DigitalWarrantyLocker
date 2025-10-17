@@ -1,0 +1,217 @@
+/* ========== Global / Reset ========== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body.auth-bg {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #F5F5F5;
+  color: #333;
+  /* Important: DO NOT center the shell (so panels can touch edges) */
+  display: block;
+  min-height: 100vh;
+}
+
+/* ========== Page Layout (GitHub-style split) ========== */
+/* Full-width grid: large hero on left, fixed form column on right */
+.auth-shell {
+  display: grid;
+  grid-template-columns: 55% 45%; /* right column ~420–520px */
+  align-items: stretch;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* ========== Left Panel (Hero / Info) ========== */
+.panel-info {
+  grid-column: 1;
+  background: #1B3C53;
+  color: #fff;
+  padding: 56px clamp(32px, 5vw, 72px);   /* nice breathing room */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Optional badge/title copy you already had */
+.badge {
+  display: inline-block;
+  background: #E85C50;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.panel-info h1 {
+  font-size: 32px;
+  margin: 10px 0 8px;
+  color: #fff;
+}
+.panel-info p {
+  font-size: 16px;
+  margin: 0 0 20px;
+  color: #e0e0e0;
+}
+
+/* Hero image at the top of the left side */
+.panel-info .hero-image {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin: 12px 0 24px;
+}
+
+/* Feature list with round colored icons */
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+.info-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  background: rgba(255,255,255,0.10);
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+.info-list .i {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 18px;
+}
+/* Colored dots per icon */
+.i-shield { background: #4a90e2; }
+.i-phone  { background: #22c55e; }
+.i-bell   { background: #a855f7; }
+/* Emoji/picto fallback (scoped so it won't affect input icons) */
+.info-list .i-shield::before { content: "🛡"; }
+.info-list .i-phone::before  { content: "📱"; }
+.info-list .i-bell::before   { content: "🔔"; }
+
+.info-list h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+}
+.info-list p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* ========== Right Panel (Form column) ========== */
+.panel-form {
+  grid-column: 2;
+  background: #fff;                 /* GitHub keeps it plain */
+  padding: 56px 48px;               /* inner padding */
+  border-left: 1px solid #e5e7eb;   /* light divider like GitHub */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.form-header h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #1B3C53;
+}
+.form-header .accent { color: #E85C50; }
+.form-header p { margin-top: 6px; color: #666; }
+
+/* Alerts */
+.alert {
+  padding: 12px;
+  border-radius: 8px;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.alert.success { background: #d4edda; color: #155724; }
+.alert.error   { background: #f8d7da; color: #721c24; }
+
+/* Form */
+.form { margin-top: 18px; max-width: 520px; }
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.field { position: relative; }
+.field input {
+  width: 100%;
+  padding: 12px 12px 12px 38px; /* space for leading icon */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color .2s, box-shadow .2s;
+  background: #fff;
+}
+.field input:focus {
+  border-color: #1B3C53;
+  box-shadow: 0 0 4px rgba(27,60,83,.25);
+  outline: none;
+}
+/* Inline input icons (only inside .field) */
+.field .i {
+  position: absolute;
+  top: 50%; left: 12px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
+}
+
+
+
+/* Button */
+.btn-cta {
+  background: #E85C50;
+  color: #fff;
+  border: 0;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background .2s;
+}
+.btn-cta:hover { background: #c94d44; }
+.btn-cta .i { margin-right: 8px; }
+
+/* Muted text */
+.muted { color: #777; font-size: 13px; margin-top: 12px; }
+.muted.center { text-align: center; }
+.muted.tiny { font-size: 11px; }
+
+/* ========== Responsive (GitHub hides left on small screens) ========== */
+@media (max-width: 1000px) {
+  .auth-shell {
+    grid-template-columns: 1fr;    /* stack */
+  }
+  .panel-info {
+    display: none;                 /* hide hero like GitHub */
+     width: 70%;
+  }
+  .panel-form {
+    border-left: 0;
+    max-width: 640px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  .form { max-width: 100%; }
+}
+
+
+

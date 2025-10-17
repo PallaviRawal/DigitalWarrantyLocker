@@ -1,0 +1,20 @@
+{
+    "name": "dell/warranty_locker",
+    "description": "Warranty Locker Project with Email & OCR",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Dell\\WarrantyLocker\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pallavi Rawal",
+            "email": "pallavirawal679@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.10",
+        "thiagoalessio/tesseract_ocr": "^2.10"
+    }
+}
