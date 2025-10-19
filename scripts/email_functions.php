@@ -15,7 +15,7 @@ function sendEmail($to, $subject, $body) {
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom('pallavirawal679@gmail.com', 'Warranty Locker');
+        $mail->setFrom('your_email@gmail.com', 'Warranty Locker');
         $mail->addAddress($to);
 
         $mail->isHTML(true);
