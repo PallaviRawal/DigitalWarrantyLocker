@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include(__DIR__ . "/../includes/db.php");
 
-// ✅ Ensure owner is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: auth/login.php");
     exit();
@@ -12,10 +11,8 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// No multi-access needed, always editable by owner
 $readonly = false;
 
-// --- Fetch product if editing ---
 $edit_data = null;
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = (int)$_GET['id'];
@@ -27,10 +24,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $stmt2->close();
 }
 
-// --- If OCR data exists and not editing, use it for prefilling ---
 $ocr_data = ($_SESSION['ocr_data'] ?? null);
 if ($ocr_data && !$edit_data) {
-    // merge OCR data with empty edit_data style array
     $edit_data = array_merge([
         "product_name"      => "",
         "category"          => "",
@@ -43,8 +38,6 @@ if ($ocr_data && !$edit_data) {
         "bill_file"         => "",
     ], $ocr_data);
     
-    // REMOVE THIS LINE: unset($_SESSION['ocr_data']);
-    // It is already handled in upload_product.php, which is the correct place.
 }
 ?>
 
