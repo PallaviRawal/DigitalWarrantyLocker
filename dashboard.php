@@ -2,18 +2,13 @@
 session_start();
 include "includes/db.php";
 
-// Ensure user is logged in
 if (!isset($_SESSION["user_id"])) {
     header("Location: auth/login.php");
     exit();
 }
 
-// Current logged-in user info
 $user_id    = $_SESSION['user_id'];
 
-
-
-// Include header
 include 'includes/header.php';
 ?>
 <link rel="stylesheet" href="css/dashboard.css">
@@ -80,9 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const li = document.createElement('li');
     li.style.padding = '5px 0';
 
-    if (n.is_read == 0) {
-        // Unread notification style
-        
+    if (n.is_read == 0) {        
         li.style.color = '#26667F'; // Blue color for unread
     } else {
         // Read notification style
