@@ -1,6 +1,4 @@
 <?php
-// complaints/complaint_list.php
-
 include __DIR__ . "/../includes/db.php";
 
 if (!isset($_SESSION['user_id'])) {
@@ -12,7 +10,6 @@ $userId = $_SESSION['user_id'];
 $message = '';
 $message_type = '';
 
-// Fetch complaints for this user (without image)
 $stmt = $conn->prepare("
     SELECT c.id, c.title, c.description, c.priority, c.status, 
            c.created_at, c.updated_at, c.attachment_audio,
@@ -136,7 +133,7 @@ tr:hover { background: #f1f1f1; }
 </tbody>
 </table>
 
-<!-- 🔹 Audio Modal -->
+<!-- Audio Modal -->
 <div id="audioModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('audioModal')">&times;</span>
