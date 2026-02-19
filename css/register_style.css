@@ -1,4 +1,3 @@
-/* ========== Global / Reset ========== */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body.auth-bg {
@@ -6,22 +5,19 @@ body.auth-bg {
   font-family: Arial, sans-serif;
   background: #F5F5F5;
   color: #333;
-  /* Important: DO NOT center the shell (so panels can touch edges) */
   display: block;
   min-height: 100vh;
 }
 
-/* ========== Page Layout (GitHub-style split) ========== */
-/* Full-width grid: large hero on left, fixed form column on right */
 .auth-shell {
   display: grid;
-  grid-template-columns: 55% 45%; /* right column ~420–520px */
+  grid-template-columns: 55% 45%;
   align-items: stretch;
   width: 100vw;
   min-height: 100vh;
 }
 
-/* ========== Left Panel (Hero / Info) ========== */
+/* Left Panel (Hero / Info) */
 .panel-info {
   grid-column: 1;
   background: #1B3C53;
@@ -32,7 +28,6 @@ body.auth-bg {
   justify-content: flex-start;
 }
 
-/* Optional badge/title copy you already had */
 .badge {
   display: inline-block;
   background: #E85C50;
@@ -108,12 +103,12 @@ body.auth-bg {
   color: #ddd;
 }
 
-/* ========== Right Panel (Form column) ========== */
+/* Right Panel (Form column)*/
 .panel-form {
   grid-column: 2;
-  background: #fff;                 /* GitHub keeps it plain */
-  padding: 56px 48px;               /* inner padding */
-  border-left: 1px solid #e5e7eb;   /* light divider like GitHub */
+  background: #fff;                 
+  padding: 56px 48px;               
+  border-left: 1px solid #e5e7eb;  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -146,7 +141,7 @@ body.auth-bg {
 .field { position: relative; }
 .field input {
   width: 100%;
-  padding: 12px 12px 12px 38px; /* space for leading icon */
+  padding: 12px 12px 12px 38px; 
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 14px;
@@ -194,13 +189,12 @@ body.auth-bg {
 .muted.center { text-align: center; }
 .muted.tiny { font-size: 11px; }
 
-/* ========== Responsive (GitHub hides left on small screens) ========== */
 @media (max-width: 1000px) {
   .auth-shell {
-    grid-template-columns: 1fr;    /* stack */
+    grid-template-columns: 1fr;  
   }
   .panel-info {
-    display: none;                 /* hide hero like GitHub */
+    display: none;                 
      width: 70%;
   }
   .panel-form {
