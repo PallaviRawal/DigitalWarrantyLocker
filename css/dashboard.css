@@ -1,6 +1,4 @@
-/* =======================
-   Design Tokens
-   ======================= */
+/*Design Tokens */
 :root{
   --bg:#f4f6fa;
   --text:#333;
@@ -15,9 +13,7 @@
   --muted:#555;
 }
 
-/* =======================
-   Base
-   ======================= */
+/* Base */
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
@@ -27,9 +23,7 @@ body{
   color:var(--text);
 }
 
-/* =======================
-   Layout
-   ======================= */
+/* Layout*/
 .dashboard-container{
   display:flex;
   min-height:calc(100vh - 76px); /* minus topbar approx */
@@ -37,9 +31,7 @@ body{
   padding: 0 20px 20px;
 }
 
-/* =======================
-   Top Bar
-   ======================= */
+/* Top Bar */
 .topbar {
   position: fixed;
   top: 0;
@@ -118,9 +110,6 @@ body{
 }
 
 /* Notification Bell */
-/* =======================
-   Notification Bell & Dropdown
-   ======================= */
 .notification-container {
   position: relative;
   display: inline-block;
@@ -130,7 +119,7 @@ body{
   cursor: pointer;
     font-size: 22px;
     position: relative;
-    padding: 6px 10px;   /* ✅ makes bigger click area */
+    padding: 6px 10px;   
     border-radius: 50%;
     transition: background 0.2s ease;
 }
@@ -139,7 +128,7 @@ body{
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Badge (hidden by default, show via JS) */
+
 .notification-bell .badge {
   position: absolute;
   top: -5px;
@@ -149,10 +138,9 @@ body{
   padding: 2px 6px;
   border-radius: 50%;
   font-size: 12px;
-  display: none; /* JS will set display:block when count > 0 */
+  display: none; 
 }
 
-/* Dropdown (hidden by default) */
 .notif-dropdown {
   position: absolute;
   top: 35px;
@@ -168,17 +156,15 @@ body{
   visibility: hidden;
   transform: translateY(10px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-  z-index: 3000 !important;  /* stays above topbar */
+  z-index: 3000 !important; 
 }
 
-/* Active state */
 .notif-dropdown.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Items */
 .notif-dropdown .notif-item {
   padding: 12px 15px;
   border-bottom: 1px solid #eee;
@@ -200,8 +186,6 @@ body{
   font-size: 14px;
 }
 
-/* Add these styles to your existing css/dashboard.css file */
-
 .message-container {
     padding: 15px;
     margin-bottom: 20px;
@@ -222,7 +206,7 @@ body{
     border: 1px solid #f5c6cb;
 }
 .notif-dropdown.show {
-    max-height: 400px; /* same as your max-height */
+    max-height: 400px;
     opacity: 1;
 }
 
@@ -242,10 +226,7 @@ body{
   
 }
 
-/* =======================
-   Sidebar
-   ======================= */
-/* Sidebar stays dark */
+/* Sidebar */
 .sidebar {
   width: 220px;
   height: 100vh;
@@ -258,7 +239,6 @@ body{
   flex-direction: column;
 }
 
-/* Sidebar header (logo + text) */
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -270,7 +250,7 @@ body{
 .sidebar-header .logo {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* circular logo */
+  border-radius: 50%; 
   object-fit: cover;
   border: 2px solid white;
 }
@@ -278,7 +258,7 @@ body{
 .sidebar-header .brand-text {
   font-size: 20px;
   font-weight: 700;
-  color: #fff; /* ✅ keep text white */
+  color: #fff; 
 }
 
 
@@ -315,13 +295,11 @@ body{
 }
 .logout:hover{ background:#c53030; }
 
-/* =======================
-   Main Content
-   ======================= */
+/*Main Content */
 .main-content {
-  margin-left: 250px;   /* leave space for sidebar */
+  margin-left: 250px;  
   padding: 20px;
-  margin-top: 75px;     /* leave space for topbar */
+  margin-top: 75px;    
 }
 
 /* Greeting Banner */
@@ -459,23 +437,19 @@ body{
   to{ opacity:1; transform:translateY(0); }
 }
 
-/* Wrapper for included pages (like my_warranty.php) */
 .dashboard-page-content {
-    display: block;   /* let child grids manage layout */
+    display: block;  
     width: 100%;
 }
 
-/* Ensure warranty cards display in a responsive grid */
 .warranty-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin: 0;        /* remove extra margins */
-    padding: 0;       /* remove extra padding */
+    margin: 0;        
+    padding: 0;       
 }
-/* =======================
-   Responsive
-   ======================= */
+/* Responsive */
 @media (max-width: 1100px){
   .content-grid{ grid-template-columns:1fr; }
 }
