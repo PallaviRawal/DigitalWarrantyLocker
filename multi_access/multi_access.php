@@ -1,10 +1,9 @@
 <?php
-include "includes/db.php"; // dashboard already includes header/session
+include "includes/db.php"; 
 
 $owner_id = $_SESSION['user_id'];
 $message = "";
 
-// --- Handle removal of shared member ---
 if (isset($_POST['delete_id'])) {
     $delete_id = (int)$_POST['delete_id'];
     $stmt = $conn->prepare("DELETE FROM warranty_shared_members WHERE id=? AND owner_id=?");
@@ -13,13 +12,10 @@ if (isset($_POST['delete_id'])) {
     $message = "Shared access removed successfully!";
 }
 
-// --- Handle form submission ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['member_email'])) {
     $member_email = trim($_POST['member_email']);
     $member_pass  = password_hash(trim($_POST['member_pass']), PASSWORD_DEFAULT);
     $product_id   = (int)$_POST['product_id'];
-
-    // Generate a dummy phone to avoid unique constraint error
     $dummy_phone = 'temp'.time();
 
     // Check if member already exists
