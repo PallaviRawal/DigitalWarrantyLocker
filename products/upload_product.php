@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    $bill_file = null;
 
-// Case 1: A new file was uploaded via the standard file input
+// Case 1: A new file was uploaded 
 if (!empty($_FILES['bill_file']['name'])) {
     $file_info = finfo_open(FILEINFO_MIME_TYPE);
     $mime_type = finfo_file($file_info, $_FILES['bill_file']['tmp_name']);
@@ -55,7 +55,6 @@ if (!empty($_FILES['bill_file']['name'])) {
     }
 } 
 // Case 2: OCR upload or edit without new file
-// (Keep your existing logic for these cases)
 else if (isset($_POST['ocr_bill_file'])) { 
     $bill_file = $_POST['ocr_bill_file'];
 }
@@ -123,7 +122,7 @@ else if (!empty($_POST['id'])) {
         $msg = $success ? "Product added successfully!" : "Error adding product!";
     }
 
-    // Unset the OCR session data to prevent it from being used again
+    
     unset($_SESSION['ocr_data']);
 
     $_SESSION['msg'] = $msg;
