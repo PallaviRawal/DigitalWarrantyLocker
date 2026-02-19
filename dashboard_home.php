@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include "includes/db.php"; // make sure this points to your db connection file
+include "includes/db.php"; 
 
 // Get logged-in user info
 $user_id  = $_SESSION['user_id'] ?? 0;
@@ -138,12 +138,9 @@ $warranties = $stmt->get_result();
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  // PHP values into JS
   const active = <?php echo $active_warranties; ?>;
   const soon   = <?php echo $expiring_soon; ?>;
   const expired = <?php echo $expired; ?>;
-
-  // Grab CSS variables from :root
   const rootStyles = getComputedStyle(document.documentElement);
   const green  = rootStyles.getPropertyValue('--green').trim();
   const amber  = rootStyles.getPropertyValue('--amber').trim();
