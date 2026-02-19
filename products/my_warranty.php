@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include(__DIR__ . "/../includes/db.php");
 
-// ✅ Ensure user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit();
@@ -12,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $userId = $_SESSION['user_id'];
 
-// Fetch warranties belonging to this user
 $sql = "SELECT * FROM products WHERE user_id = ? ORDER BY purchase_date DESC";
 $stmt = $conn->prepare($sql);
 if (!$stmt) die("Prepare failed: " . $conn->error);
@@ -22,9 +20,7 @@ $result = $stmt->get_result();
 ?>
 
 <style>
-/* ======================
-Table Styles
-====================== */
+/*Table Styles */
 .main-content-inner {
     max-width: 1200px;
     margin: 0 auto
@@ -192,7 +188,7 @@ Table Styles
         </thead>
         <tbody>
        <?php while($row = $result->fetch_assoc()):
-    // Always use the stored expiry date
+    
     $warranty_expiry = !empty($row['warranty_expiry']) ? $row['warranty_expiry'] : null;
 
     $today_ts = strtotime(date('Y-m-d'));
@@ -242,7 +238,6 @@ Table Styles
     <?php endif; ?>
 </div>
 
-<!-- ✅ Single Clean Modal -->
 <div id="receiptModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
