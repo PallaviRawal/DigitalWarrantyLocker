@@ -1,6 +1,4 @@
 <?php
-// Layout for admin pages
-// Ensure session and $conn are already available
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +38,8 @@
 </div>
 
 <script>
-// Optional: if you want to load/manage complaints dynamically without redirect
 document.getElementById('manage-complaints').addEventListener('click', function(e) {
     e.preventDefault();
-    // Currently, content is already loaded in same page
-    // If you want AJAX, you can replace #dashboard-page-content innerHTML
 });
 </script>
 </body>
