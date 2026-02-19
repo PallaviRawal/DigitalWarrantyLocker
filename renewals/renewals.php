@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include(__DIR__ . "/../includes/db.php");
 
-//  Ensure user logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit();
@@ -12,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $userId = $_SESSION['user_id'];
 
-// Fetch products for this user
 $sql = "SELECT id, product_name, brand FROM products WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userId);
@@ -79,7 +77,6 @@ $result = $stmt->get_result();
     font-weight: 600;
 }
 
-/* Wrapper: Form (left) + Image (right) */
 .renew-wrapper {
     display: flex;
     align-items: center;
