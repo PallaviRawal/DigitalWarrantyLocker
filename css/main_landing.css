@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif; /* Changed font */
@@ -9,9 +8,9 @@ body {
 /* Header */
 header {
     background-color: #1B3C53;
-    padding: 20px 0; /* Increased padding */
+    padding: 20px 0;
     color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .container {
@@ -23,7 +22,7 @@ header {
 }
 
 .logo {
-    font-size: 28px; /* Increased font size */
+    font-size: 28px; 
     font-weight: bold;
 }
 
@@ -32,18 +31,18 @@ nav a {
     margin-left: 20px;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s; /* Added transition */
+    transition: color 0.3s; 
 }
 
 nav a:hover {
-    color: #E85C50; /* Change color on hover */
+    color: #E85C50; 
 }
 
 nav a.btn {
     background-color: #E85C50;
-    padding: 10px 20px; /* Adjusted padding */
+    padding: 10px 20px; 
     border-radius: 5px;
-    transition: background-color 0.3s; /* Added transition */
+    transition: background-color 0.3s; 
 }
 
 nav a.btn:hover {
@@ -66,7 +65,6 @@ nav a.btn:hover {
     color: white;
 }
 
-/* Add dark overlay for readability */
 .hero::before {
     content: "";
     position: absolute;
@@ -81,32 +79,31 @@ nav a.btn:hover {
 }
 
 .hero-content h2 {
-    font-size: 48px; /* Increased font size */
+    font-size: 48px; 
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 22px; /* Increased font size */
+    font-size: 22px; 
     margin-bottom: 25px;
 }
 
 .hero-content .btn.primary {
     background-color: #E85C50;
     color: white;
-    padding: 15px 30px; /* Adjusted padding */
+    padding: 15px 30px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 20px; /* Increased font size */
+    font-size: 20px;
     font-weight: bold;
     display: inline-block;
-    transition: background-color 0.3s; /* Added transition */
+    transition: background-color 0.3s; 
 }
 
 .hero-content .btn.primary:hover {
     background-color: #c94d44;
 }
 
-/* Features */
 .features {
     padding: 60px 20px;
     background-color: #F5F5F5;
@@ -114,8 +111,8 @@ nav a.btn:hover {
 }
 
 .features h2 {
-    font-size: 36px; /* Increased font size */
-    margin-bottom: 30px; /* Added margin */
+    font-size: 36px;
+    margin-bottom: 30px; 
 }
 
 .feature-grid {
@@ -129,16 +126,15 @@ nav a.btn:hover {
     background: white;
     padding: 30px; /* Increased padding */
     border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1); /* Increased shadow */
-    transition: transform 0.2s, box-shadow 0.2s; /* Added shadow transition */
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1); 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 .feature:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); /* Shadow on hover */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
 }
 
-/* How It Works */
 .how-it-works {
     padding: 50px 20px;
     background-color: #76BA99;
@@ -146,8 +142,8 @@ nav a.btn:hover {
 }
 
 .how-it-works h2 {
-    font-size: 36px; /* Increased font size */
-    margin-bottom: 20px; /* Added margin */
+    font-size: 36px; 
+    margin-bottom: 20px; 
 }
 
 .how-it-works ol {
@@ -157,11 +153,10 @@ nav a.btn:hover {
     line-height: 1.8;
 }
 
-/* Footer */
 footer {
     background-color: #1B3C53;
     color: white;
-    padding: 20px; /* Increased padding */
+    padding: 20px; 
     text-align: center;
     font-size: 14px;
 }
