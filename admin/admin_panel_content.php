@@ -1,6 +1,5 @@
 <?php
-// This file is now included in admin_layout.php
-// The session and database connection are already handled.
+
 if (!isset($conn)) {
     include "../includes/db.php";
 }
@@ -11,7 +10,6 @@ if (isset($_POST['update_status'])) {
     $complaintId = intval($_POST['complaint_id']);
     $newStatus = $_POST['status'];
     
-    // Validate the new status
     $allowedStatuses = ['Pending', 'In Progress', 'Resolved', 'Not Resolved'];
     if (in_array($newStatus, $allowedStatuses)) {
         $updateStmt = $conn->prepare("UPDATE complaints SET status = ? WHERE id = ?");
@@ -124,7 +122,6 @@ $stmt->close();
             <td>
     <?php if (!empty($c['attachment_audio'])): ?>
         <?php 
-            // adjust path depending on where this file is located
             $audioPath = (file_exists("../" . $c['attachment_audio'])) 
                 ? "../" . $c['attachment_audio'] 
                 : $c['attachment_audio']; 
