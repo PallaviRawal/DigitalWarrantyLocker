@@ -26,7 +26,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $stmt->bind_param("ii", $id, $user_id);
 
         if ($stmt->execute()) {
-            // Delete file from uploads folder if it exists
             if (!empty($product['bill_file'])) {
                 $file_path = __DIR__ . "/../uploads/" . $product['bill_file'];
                 if (file_exists($file_path)) {
@@ -45,6 +44,5 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $_SESSION['msg'] = " Invalid request!";
 }
 
-// Redirect back to My Warranties page
 header("Location: ../dashboard.php?page=product_list");
 exit();
