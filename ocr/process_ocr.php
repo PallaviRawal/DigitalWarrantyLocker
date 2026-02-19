@@ -1,17 +1,13 @@
 <?php
-// File location: C:\xampp\htdocs\warranty_locker\ocr\process_ocr.php
 
-// Correctly reference the autoloader from the root directory.
 require __DIR__ . '/../vendor/autoload.php';
 
 use thiagoalessio\TesseractOCR\TesseractOCR;
 
-// Start the session to store and retrieve data.
 session_start();
 
 if (isset($_FILES['receipt_image']) && $_FILES['receipt_image']['error'] == 0) {
-    // ✅ Change the target directory to your main uploads folder
-    $targetDir = __DIR__ . "/../uploads/";  // ✅ goes one level up
+    $targetDir = __DIR__ . "/../uploads/"; 
     if (!is_dir($targetDir)) {
         mkdir($targetDir, 0777, true);
     }
