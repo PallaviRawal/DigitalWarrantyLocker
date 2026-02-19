@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// Get the pre-filled data from the session
 $serialNumber = $_SESSION['serial_number'] ?? '';
 $purchaseDate = $_SESSION['purchase_date'] ?? '';
 $receiptImage = $_SESSION['receipt_image'] ?? '';
 
-// You can add logic here to fetch user_id from a logged-in user session
 $userId = 1; // Example user_id
 
 ?>
